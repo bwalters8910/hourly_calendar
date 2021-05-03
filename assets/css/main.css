@@ -31,7 +31,6 @@ textarea {
 }
 
 .row {
-  background-color: lightgray;
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
@@ -44,7 +43,7 @@ textarea {
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: #a5a1a1;
   color: white;
 }
 

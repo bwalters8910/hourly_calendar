@@ -1,35 +1,37 @@
 $(document).ready(function () {
   // all your code goes here
 
-
-
-    });
-
-
   let currentDay = $("#currentDay");
 
   function displayDate() {
     let rightNow = moment().format("dddd, MMMM Do YYYY");
     currentDay.text(rightNow);
-}
+  }
 
-  // function updateRowColor() {
-  //   // set variable to current hour
-  //   let hour = new Date().getHours();
-  //   let compareTime = element.getAttribute("data-time");
-  //   let allDataTimeElements = $("[data-time]");
-  //   // loop over each row of the class (time-block) $each
-  //   for (var i = 0; i < allDataTimeElements.length; i++) {
-  //     // use allDiv[i] for accessing each one
-  //     if (hour > compareTime) {
-  //       $(".time-block").addClass("past");
-  //     }
-  //   }
-  // }
+  function updateRowColor() {
+    // set variable to current hour
+    let hour = new Date().getHours();
+    //console.log(hour);
+
+    for (i = 9; i < 18; i++) {
+      let compareTime = $(`#hour${i}`);
+      //console.log(compareTime[0]);
+      //console.log(typeof compareTime);
+      if (hour > i) {
+        compareTime.addClass("past");
+      }
+      else if (hour < i) {
+        compareTime.addClass("future");
+      }
+      else {
+        compareTime.addClass("present");
+      }
+    }
+  }
 
   function saveTask() {
     let userInput9 = document.querySelector("#input9").value;
-    localStorage.setItem("hour9", (userInput9));
+    localStorage.setItem("hour9", userInput9);
     let userInput10 = document.querySelector("#input10").value;
     localStorage.setItem("hour10", userInput10);
     let userInput11 = document.querySelector("#input11").value;
@@ -81,12 +83,12 @@ $(document).ready(function () {
   function init() {
     displayDate();
     showSavedTasks();
-    // updateRowColor();
+    updateRowColor();
   }
 
   init();
 
-  $('.saveBtn').on("click", saveTask);
+  $(".saveBtn").on("click", saveTask);
+});
 
-
-// create a rows dynamically with js or jqeuery and append them to html
+// if there's time...create a rows dynamically with js or jqeuery and append them to html

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  // all your code goes here
 
   let currentDay = $("#currentDay");
 
